@@ -1,13 +1,10 @@
-import { test } from '@playwright/test';
-import { MenuPage } from '../../src/pages/MenuPage';
-import { CartPage } from '../../src/pages/CartPage';
+import { test } from '../fixtures/fixtures';
 
-test('Assert discounted Mocha added to the Cart after promo accepting', async ({
-  page,
+// eslint-disable-next-line max-len
+test('Assert discounted Mocha not added to the Cart after promo diclining', async ({
+  menuPage,
+  cartPage,
 }) => {
-  const menuPage = new MenuPage(page);
-  const cartPage = new CartPage(page);
-
   await menuPage.open();
   await menuPage.clickCappucinoCup();
   await menuPage.clickEspressoCup();

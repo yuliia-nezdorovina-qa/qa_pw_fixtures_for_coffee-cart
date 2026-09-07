@@ -1,10 +1,11 @@
-import { test } from '@playwright/test';
-import { MenuPage } from '../../src/pages/MenuPage';
+import { test } from '../fixtures/fixtures';
+import { priceFormatStr } from '../../src/common/helpers/getPriceForQuantity';
+import { coffeePrices } from '../../src/constants';
 
-test('Check Espresso cup has correct cost', async ({ page }) => {
-  const menuPage = new MenuPage(page);
-
+test('Check Espresso cup has correct cost', async ({ menuPage }) => {
   await menuPage.open();
 
-  await menuPage.assertEspressoCupCostHasValue('$10.00');
+  await menuPage.assertEspressoCupCostHasValue(
+    await priceFormatStr(coffeePrices.espresso),
+  );
 });
