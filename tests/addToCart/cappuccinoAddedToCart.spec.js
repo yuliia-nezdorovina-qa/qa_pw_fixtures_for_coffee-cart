@@ -15,7 +15,7 @@ test('Check Cappuccino correctly added to the Cart', async ({
 
   await cartPage.assertCappuccinoNameIsContainsCorrectText();
   await cartPage.assertCappuccinoUnitContainsCorrectText(
-    await unitPriceFormatStr(1, coffeePrices.cappuccino),
+    await unitPriceFormatStr(coffeePrices.cappuccino, 1),
   );
   await cartPage.assertCappuccinoTotalCostContainsCorrectText(
     await priceFormatStr(coffeePrices.cappuccino),
